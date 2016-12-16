@@ -8,7 +8,7 @@ ENV KAFKA_VERSION="0.10.1.0" SCALA_VERSION="2.11"
 ADD download-kafka.sh /tmp/download-kafka.sh
 RUN chmod a+x /tmp/download-kafka.sh && sync && /tmp/download-kafka.sh && tar xfz /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt && rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} /opt/kafka
 
-VOLUME ["/kafka"]
+#VOLUME ["/kafka"]
 
 ENV KAFKA_HOME /opt/kafka
 ENV PATH ${PATH}:${KAFKA_HOME}/bin
@@ -20,4 +20,7 @@ RUN chmod a+x /usr/bin/start-kafka.sh && \
     chmod a+x /usr/bin/broker-list.sh && \
     chmod a+x /usr/bin/create-topics.sh
 # Use "exec" form so that it runs as PID 1 (useful for graceful shutdown)
+
+RUN chmod -R 777 $KAFKA_HOME
+
 CMD ["start-kafka.sh"]
