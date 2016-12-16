@@ -21,6 +21,7 @@ RUN chmod a+x /usr/bin/start-kafka.sh && \
     chmod a+x /usr/bin/create-topics.sh
 # Use "exec" form so that it runs as PID 1 (useful for graceful shutdown)
 
-RUN chmod -R 777 $KAFKA_HOME
+RUN chmod -R 777 $KAFKA_HOME && \
+ mkdir /kafka && chmod -R 777 /kafka
 
 CMD ["start-kafka.sh"]
