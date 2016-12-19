@@ -35,6 +35,7 @@ RUN set -x \
 
 # Change folder settings
 RUN set -x \
+    && chown -R $KAFKA_UID:0 /kafka "$KAFKA_HOME" \
     && chgrp -R 0 /kafka "$KAFKA_HOME" \
     && chmod -R g+rw /kafka "$KAFKA_HOME"
 
