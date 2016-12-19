@@ -27,11 +27,12 @@ RUN chmod a+x /usr/bin/start-kafka.sh && \
 
 # Add group
 RUN set -x \    
-    && addgroup -g "$KAFKA_UID" "$KAFKA_USER"    
+    && addgroup -g "$KAFKA_UID" "$KAFKA_USER"
 
-# Add a user
+# Add a user and create folder
 RUN set -x \    
-    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER"
+    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER" \ 
+    && mkdir /kafka
 
 # Change folder settings
 RUN set -x \
