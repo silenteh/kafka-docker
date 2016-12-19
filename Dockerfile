@@ -31,7 +31,7 @@ RUN set -x \
 
 # Add a user
 RUN set -x \    
-    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER" \
+    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER"
 
 # Change folder settings
 RUN set -x \
