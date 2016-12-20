@@ -31,8 +31,7 @@ RUN set -x \
 
 # Add a user and create folder
 RUN set -x \    
-    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER" \ 
-    && mkdir /kafka
+    && adduser -u "$KAFKA_UID" -G "$KAFKA_USER" -D "$KAFKA_USER"    
 
 # Change folder settings
 RUN set -x \
