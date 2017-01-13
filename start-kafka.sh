@@ -3,6 +3,9 @@
 if [[ -z "$KAFKA_PORT" ]]; then
     export KAFKA_PORT=9092
 fi
+if [[ -z "$KAFKA_JMX_PORT" ]]; then
+    export KAFKA_JMX_PORT=9998
+fi
 if [[ -z "$KAFKA_ADVERTISED_PORT" ]]; then
     export KAFKA_ADVERTISED_PORT=$(docker port `hostname` $KAFKA_PORT | sed -r "s/.*:(.*)/\1/g")
 fi
