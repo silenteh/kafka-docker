@@ -1,10 +1,10 @@
-FROM anapsix/alpine-java
+FROM anapsix/alpine-java:8_jdk
 
 MAINTAINER Wurstmeister
 
 RUN apk add --update unzip wget curl docker jq coreutils
 
-ENV KAFKA_VERSION="0.10.1.0" SCALA_VERSION="2.11"
+ENV KAFKA_VERSION="0.10.1.1" SCALA_VERSION="2.11"
 
 ENV KAFKA_USER=kafka
 ENV KAFKA_UID=1234
